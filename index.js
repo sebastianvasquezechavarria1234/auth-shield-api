@@ -1,16 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv').config()
 
 const app = express();
+
+// Middlewares de seguridad
+app.use(helmet());
+app.use(cors());
 
 // capturar body
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 // Conexión a Base de datos
-const uri = `mongodb+srv://api-directo:sebas@cluster1.u9v1tw1.mongodb.net/api-directo?retryWrites=true&w=majority&appName=Cluster1`;
+const uri = process.env.MONGODB_URI;
 const option = { useNewUrlParser: true, useUnifiedTopology: true }
 
 mongoose.connect(uri, option)
@@ -19,9 +25,7 @@ mongoose.connect(uri, option)
 
 
 // import routes
-
 const authRoutes = require('./routes/auth.js')
-
 const dashboadRoutes = require('./routes/dashboard');
 const verifyToken = require('./routes/validate-token');
 
@@ -41,4 +45,4 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`servidor andando en: ${PORT}`)
-})
+})
