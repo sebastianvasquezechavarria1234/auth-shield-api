@@ -25,11 +25,12 @@ mongoose.connect(uri, option)
 
 
 // import routes
-const authRoutes = require('./routes/auth.js')
-const dashboadRoutes = require('./routes/dashboard');
+const authRoutes = require('./routes/auth')
+const dashboardRoutes = require('./routes/dashboard');
 const verifyToken = require('./routes/validate-token');
 
-app.use('/api/dashboard', verifyToken, dashboadRoutes);
+app.use('/api/dashboard', verifyToken, dashboardRoutes);
+
 
 // route middlewares
 app.use('/api/user', authRoutes)
