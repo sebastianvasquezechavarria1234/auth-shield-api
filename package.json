@@ -1,5 +1,5 @@
 {
-  "name": "apitokens",
+  "name": "auth-shield-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

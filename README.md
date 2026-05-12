@@ -1,4 +1,4 @@
-# JWT API Authentication
+# Auth Shield API
 
 Esta es una API REST profesional construida con Node.js, Express y MongoDB para gestionar la autenticación de usuarios mediante JSON Web Tokens (JWT).
 
