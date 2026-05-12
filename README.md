@@ -1,47 +1,75 @@
-# Auth Shield API
+# 🛡️ Auth Shield API
 
-Esta es una API REST profesional construida con Node.js, Express y MongoDB para gestionar la autenticación de usuarios mediante JSON Web Tokens (JWT).
+A robust and secure REST API for user authentication and authorization built with **Node.js**, **Express**, and **MongoDB**. This project provides a solid foundation for managing secure access using JSON Web Tokens (JWT).
 
-## 🚀 Características
+---
 
-- **Autenticación con JWT:** Generación y validación de tokens seguros.
-- **Seguridad:** Uso de `helmet` para headers HTTP y `cors` para acceso cruzado.
-- **Validación de Datos:** Uso de `Joi` para validar entradas de usuario.
-- **Encriptación:** Contraseñas hasheadas con `bcrypt`.
-- **Manejo de Errores:** Middleware global para captura de errores y rutas 404.
-- **Variables de Entorno:** Configuración segura mediante `.env`.
+## 🚀 Features
 
-## 🛠️ Instalación
+- **🔐 JWT Authentication:** Secure token generation and verification.
+- **🛡️ Enhanced Security:** Integrated with `helmet` for HTTP headers and `cors` for cross-origin resource sharing.
+- **🧪 Data Validation:** Strict input validation using `Joi` to ensure data integrity.
+- **🔑 Password Hashing:** User passwords are safely hashed using `bcrypt`.
+- **⚙️ Global Error Handling:** Centralized middleware for catching errors and handling 404 routes.
+- **📁 Environment Configuration:** Secure management of sensitive data via `.env`.
 
-1. Clonar el repositorio:
+---
+
+## 🛠️ Installation
+
+1. **Clone the repository:**
    ```bash
-   git clone <url-del-repo>
+   git clone https://github.com/sebastianvasquezechavarria1234/auth-shield-api.git
    ```
 
-2. Instalar dependencias:
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. Configurar variables de entorno:
-   - Crea un archivo `.env` en la raíz basado en `.env.example`.
+3. **Configure environment variables:**
+   - Create a `.env` file in the root directory based on `.env.example`.
+   - Add your MongoDB URI and a secure TOKEN_SECRET.
 
-4. Iniciar el servidor:
+4. **Start the server:**
    ```bash
    npm run dev
    ```
 
-## 🔌 Endpoints
+---
 
-### Usuarios
-- `POST /api/user/register`: Registro de nuevos usuarios.
-- `POST /api/user/login`: Inicio de sesión y obtención del token.
+## 🔌 API Endpoints
 
-### Protegidos
-- `GET /api/dashboard`: Ruta de ejemplo protegida (requiere header `auth-token`).
+### 🆔 User Routes
+- `POST /api/user/register` - Register a new user.
+- `POST /api/user/login` - Login and receive an access token.
 
-## 🔑 Variables de Entorno
+### 🔒 Protected Routes
+- `GET /api/dashboard` - Sample protected route (requires `auth-token` header).
 
-- `MONGODB_URI`: Cadena de conexión a MongoDB Atlas.
-- `TOKEN_SECRET`: Secreto para firmar los tokens JWT.
-- `PORT`: Puerto donde correrá el servidor (opcional, default 3001).
+---
+
+## 🔑 Environment Variables
+
+The application requires the following variables in your `.env` file:
+
+| Variable | Description |
+| :--- | :--- |
+| `MONGODB_URI` | Your MongoDB Atlas connection string. |
+| `TOKEN_SECRET` | A long, random string to sign your JWTs. |
+| `PORT` | The port for the server (default: 3001). |
+
+---
+
+## 📦 Tech Stack
+
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Mongoose)
+- **Security:** Jsonwebtoken, Bcrypt, Helmet, Cors
+- **Validation:** Joi
+
+---
+
+## 📝 License
+
+This project is licensed under the ISC License.
