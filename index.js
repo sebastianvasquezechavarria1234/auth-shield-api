@@ -42,8 +42,26 @@ app.get('/', (req, res) => {
     })
 });
 
+// Middleware para manejar errores 404
+app.use((req, res, next) => {
+    res.status(404).json({
+        error: true,
+        mensaje: 'Ruta no encontrada'
+    });
+});
+
+// Middleware de manejo de errores global
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+        error: true,
+        mensaje: 'Ocurrió un error interno en el servidor'
+    });
+});
+
 // iniciar server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`servidor andando en: ${PORT}`)
-})
+})
+

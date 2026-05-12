@@ -1,29 +1,11 @@
 const router = require('express').Router();
 const User = require('../models/User');
-
-const Joi = require('@hapi/joi')
-
-// PASSWORD
 const bcrypt = require('bcrypt');
-
-// JWT
-
 const jwt = require('jsonwebtoken');
 
-// VALIDACIONES REGISTER
-const schemaRegister = Joi.object({
-    name: Joi.string().min(6).max(255).required(),
-    email: Joi.string().min(6).max(255).required().email(),
-    password: Joi.string().min(6).max(1024).required()
-})
+// VALIDACIONES
+const { schemaRegister, schemaLogin } = require('../validations/auth');
 
-
-// VALIDACIO LOGIN
-
-const schemaLogin = Joi.object({
-    email: Joi.string().min(6).max(255).required().email(),
-    password: Joi.string().min(6).max(1024).required()
-})
 
 
 
